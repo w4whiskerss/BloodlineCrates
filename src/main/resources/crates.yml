@@ -1,0 +1,68 @@
+crates:
+  example:
+    display_name: '&cExample Blood Crate'
+    type: SELECTABLE
+    key: example_key
+    itemsadder_model: 'namespace:crate_model'
+    preview_chances: true
+    cooldown:
+      scope: PER_CRATE
+      seconds: 30
+    pity:
+      enabled: true
+      threshold: 10
+      guaranteed_tier: EPIC
+    animation:
+      type: SPIN
+      speed_ticks: 2
+      duration_ticks: 40
+      synced: true
+      particles: true
+      sounds: true
+      skip_permission: bloodlinecrates.skipanimation
+    locations:
+      - world: world
+        x: 0.5
+        y: 65.0
+        z: 0.5
+        yaw: 0.0
+        pitch: 0.0
+    bundles:
+      '10':
+        commands:
+          - 'say %player% completed 10 example crates'
+    rewards:
+      diamond_bundle:
+        tier: COMMON
+        weight_group: default
+        chance: 70.0
+        permission: ''
+        broadcast: false
+        title: false
+        bossbar: false
+        duplicate_protection: false
+        item:
+          material: DIAMOND
+          amount: 8
+          name: '&bDiamond Bundle'
+          lore:
+            - '&7A solid stack of diamonds.'
+        commands:
+          - 'eco give %player% 250'
+      netherite_kit:
+        tier: LEGENDARY
+        weight_group: default
+        chance: 30.0
+        permission: bloodlinecrates.reward.netherite_kit
+        broadcast: true
+        title: true
+        bossbar: true
+        duplicate_protection: true
+        item:
+          material: NETHERITE_INGOT
+          amount: 4
+          name: '&6Netherite Kit'
+          lore:
+            - '&7A premium crate reward.'
+        commands:
+          - 'say %player% pulled the Netherite Kit!'

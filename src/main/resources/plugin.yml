@@ -1,0 +1,32 @@
+name: BloodlineCrates
+main: com.bloodlinecrates.BloodlineCratesPlugin
+version: 1.0.0-SNAPSHOT
+api-version: '1.21'
+authors: [OpenAI]
+description: Premium-style crate plugin with RNG and selectable crates.
+softdepend:
+  - PlaceholderAPI
+  - DeluxeMenus
+  - ItemsAdder
+  - DecentHolograms
+  - Vault
+commands:
+  bloodcrates:
+    description: Main BloodlineCrates command.
+    usage: /bloodcrates
+    aliases: [bloodlinecrates, bcrates]
+permissions:
+  bloodlinecrates.admin:
+    default: op
+  bloodlinecrates.editor:
+    default: op
+  bloodlinecrates.editor.crates:
+    default: op
+  bloodlinecrates.editor.keys:
+    default: op
+  bloodlinecrates.create.crate:
+    default: op
+  bloodlinecrates.create.key:
+    default: op
+  bloodlinecrates.skipanimation:
+    default: op

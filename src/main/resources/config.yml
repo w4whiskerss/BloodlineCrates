@@ -1,0 +1,44 @@
+storage:
+  type: YAML
+  mysql:
+    host: localhost
+    port: 3306
+    database: bloodlinecrates
+    username: root
+    password: ''
+    use_ssl: false
+network_sync:
+  enabled: false
+  mode: MYSQL
+editor:
+  auto_save_seconds: 120
+  bulk_editing_enabled: true
+gui:
+  fill_empty_slots: true
+  filler_material: BLACK_STAINED_GLASS_PANE
+  click_sound: UI_BUTTON_CLICK
+  animated_titles: true
+limits:
+  max_multi_open: 10
+  prevent_open_spam_ticks: 10
+  same_ip_open_limit_per_hour: 100
+  max_keys_gained_per_hour: 250
+disabled_worlds: []
+timed_keys:
+  check_interval_seconds: 30
+economy:
+  enabled: false
+  default_open_price: 0.0
+season:
+  enabled: false
+  wipe_keys_on_reset: false
+discord:
+  enabled: false
+  webhook_url: ''
+logging:
+  export_open_log: true
+  export_audit_log: true
+preview:
+  show_exact_chances: true
+effects:
+  nearby_sync_range: 16

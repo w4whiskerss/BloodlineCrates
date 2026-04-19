@@ -1,0 +1,19 @@
+keys:
+  example_key:
+    display_name: '&bExample Key'
+    lore:
+      - '&7Use at the matching crate.'
+    itemsadder_model: 'namespace:key_model'
+    physical_enabled: true
+    virtual_enabled: true
+    item:
+      material: TRIPWIRE_HOOK
+      amount: 1
+      name: '&bExample Key'
+      lore:
+        - '&7Opens the Example Blood Crate'
+    timed_rewards:
+      - interval_minutes: 60
+        amount: 1
+        permission_multiplier:
+          bloodlinecrates.timed.vip: 2.0
