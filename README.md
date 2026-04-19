@@ -1,11 +1,26 @@
 # BloodlineCrates
 
 <p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=8B0000&text=BloodlineCrates&fontColor=ffffff&fontAlignY=38&desc=Premium%20Paper%201.21.11%20Crate%20Plugin&descAlignY=58&animation=fadeIn" alt="BloodlineCrates banner" />
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1200&color=E53935&center=true&vCenter=true&width=900&lines=RNG+Crates;Selectable+Non-RNG+Crates;Virtual+%2B+Physical+Keys;Timed+Rewards%2C+Analytics%2C+Anti-Exploit;Built+for+high-energy+Minecraft+servers" alt="Animated feature banner" />
+</p>
+
+<p align="center">
   <strong>A premium-style Paper crate plugin for modern Minecraft networks.</strong>
 </p>
 
 <p align="center">
   Built for <strong>Paper 1.21.11</strong> with <strong>RNG crates</strong>, <strong>selectable crates</strong>, <strong>virtual + physical keys</strong>, <strong>timed rewards</strong>, and a modular architecture designed to scale.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Paper-1.21.11-red?style=for-the-badge&logo=github" alt="Paper 1.21.11" />
+  <img src="https://img.shields.io/badge/Status-Active%20Build-darkred?style=for-the-badge" alt="Active Build" />
+  <img src="https://img.shields.io/badge/Storage-YAML%20%2B%20MySQL-black?style=for-the-badge" alt="Storage" />
+  <img src="https://img.shields.io/badge/Mode-RNG%20%2B%20Selectable-red?style=for-the-badge" alt="Modes" />
 </p>
 
 <p align="center">
@@ -22,11 +37,19 @@
 
 ---
 
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=3&color=E53935" alt="divider" />
+</p>
+
 ## Overview
 
 BloodlineCrates is designed to feel closer to a polished premium crate system than a basic reward menu. It supports both classic weighted reward crates and a standout non-RNG selectable mode where players choose the reward they want instead of hoping for a lucky roll.
 
 The plugin is built around clean managers, reloadable YAML configs, optional MySQL-backed player data, PlaceholderAPI support, in-game admin tools, analytics, and anti-exploit protections.
+
+<p align="center">
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjZ1MHd4MHVyODl2d2l6b2t0Y2VmbmN2NGxwOGc1cjQwaGs4bGc2ZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13HgwGsXF0aiGY/giphy.gif" width="720" alt="Minecraft style energy gif" />
+</p>
 
 ## Features
 
@@ -81,6 +104,10 @@ The plugin is built around clean managers, reloadable YAML configs, optional MyS
 | Analytics logging | Yes |
 | Audit logs | Yes |
 | Public events | Yes |
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=3&color=8B0000" alt="divider" />
+</p>
 
 ## Quick Start
 
@@ -228,6 +255,10 @@ Soft-depend support is prepared for:
 ## Current Status
 
 This repository currently provides a strong compileable core and project foundation. Some enterprise-grade integrations from the original design brief are scaffolded or partially represented at the architecture level and can be expanded further in later passes.
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=8B0000&center=true&vCenter=true&width=800&lines=Built+to+feel+fast.;Built+to+feel+premium.;Built+to+keep+growing." alt="Animated footer banner" />
+</p>
 
 ## Project Vision
 
