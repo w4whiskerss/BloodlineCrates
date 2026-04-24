@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '9.2.2'
+    id 'xyz.jpenilla.run-paper' version '3.0.2'
+}
+
+group = 'com.bloodline.crates'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
+    maven { url = 'https://jitpack.io' }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
+    implementation 'com.github.cryptomorin:XSeries:13.5.1'
+    implementation 'com.google.code.gson:gson:2.13.2'
+    compileOnly('com.github.MilkBowl:VaultAPI:1.7') {
+        exclude group: 'org.bukkit', module: 'bukkit'
+    }
+    compileOnly 'redis.clients:jedis:6.1.0'
+    compileOnly 'com.zaxxer:HikariCP:6.3.0'
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    compileOnly 'me.clip:placeholderapi:2.11.5'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.jar {
+    archiveClassifier = 'thin'
+}
+
+tasks.shadowJar {
+    archiveClassifier = ''
+    relocate 'com.cryptomorin.xseries', 'com.bloodline.crates.libs.xseries'
+}
+
+tasks.assemble {
+    dependsOn tasks.shadowJar
+}
+
+tasks {
+    runServer {
+        minecraftVersion('1.21.11')
+    }
+}

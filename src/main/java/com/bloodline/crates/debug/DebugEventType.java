@@ -1,0 +1,17 @@
+package com.bloodline.crates.debug;
+
+public enum DebugEventType {
+    KEY_CHECK,
+    RNG_ROLL,
+    PITY_CHECK,
+    COOLDOWN_CHECK,
+    LIMIT_CHECK,
+    REWARD_EXECUTE,
+    TRANSACTION_CREATE,
+    TRANSACTION_COMPLETE,
+    ANIMATION_START,
+    ANIMATION_END,
+    TIMED_KEY_GRANT,
+    CONFIG_RELOAD,
+    SYNC_EVENT
+}

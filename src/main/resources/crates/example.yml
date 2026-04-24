@@ -1,0 +1,55 @@
+id: "example"
+displayName: "&6Example Crate"
+type: SELECTABLE
+keyId: "example_key"
+description: "&7A starter crate with a matching example key."
+key-mode: PHYSICAL
+
+key:
+  display-item:
+    material: TRIPWIRE_HOOK
+    amount: 1
+    name: "&6Example Key"
+    lore:
+      - "&7Used to open the Example Crate"
+      - "&eThis example uses physical keys"
+
+rewards:
+  - item:
+      material: DIAMOND
+      amount: 1
+      name: "&bShiny Diamond"
+      lore:
+        - "&7A sparkling diamond"
+        - "&7Worth a lot!"
+    chance: 10.0
+    permission: ""
+    broadcast: true
+    broadcast-message: "&d{player} &7just unboxed &b{reward} &7from &6{crate}&7!"
+
+  - item:
+      material: EMERALD
+      amount: 5
+      name: "&aEmerald Stack"
+      lore:
+        - "&7Five emeralds"
+    chance: 25.0
+    permission: ""
+
+  - item:
+      material: GOLDEN_APPLE
+      amount: 3
+      name: "&6Golden Apples"
+      lore:
+        - "&7Heal yourself"
+    chance: 35.0
+    permission: ""
+
+  - item:
+      material: IRON_INGOT
+      amount: 10
+      name: "&fIron Ingots"
+      lore:
+        - "&7Basic resource"
+    chance: 30.0
+    permission: ""

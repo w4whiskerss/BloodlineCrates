@@ -1,0 +1,111 @@
+name: BloodlineCrates
+version: 1.0.0
+main: com.bloodline.crates.BloodlineCrates
+api-version: '1.21'
+author: Bloodline
+description: Feature-rich crate system with GUI-based selection
+softdepend: [Vault, DecentHolograms]
+
+commands:
+  bloodcrates:
+    description: Main crate command
+    aliases: [bc]
+    usage: /bloodcrates <subcommand>
+
+permissions:
+  bloodcrates.admin:
+    description: Access to all BloodlineCrates admin features
+    default: op
+    children:
+      bloodcrates.admin.editor: true
+      bloodcrates.admin.givecrate: true
+      bloodcrates.admin.givevirtualcrate: true
+      bloodcrates.admin.givekey: true
+      bloodcrates.admin.givevirtualkey: true
+      bloodcrates.admin.givebundle: true
+      bloodcrates.admin.reload: true
+      bloodcrates.admin.reloadcrates: true
+      bloodcrates.admin.audit: true
+      bloodcrates.admin.loadout: true
+      bloodcrates.admin.setcrate: true
+      bloodcrates.admin.removecrate: true
+      bloodcrates.admin.listcrates: true
+      bloodcrates.admin.teleportcrate: true
+      bloodcrates.admin.limits: true
+      bloodcrates.admin.migrate: true
+      bloodcrates.admin.debug: true
+      bloodcrates.admin.breakcrate: true
+      bloodcrates.admin.notify: true
+  bloodcrates.*:
+    description: Access to every BloodlineCrates permission
+    default: op
+    children:
+      bloodcrates.admin: true
+      bloodcrates.use: true
+      bloodcrates.claims: true
+  bloodcrates.use:
+    description: Use crates and preview rewards
+    default: true
+  bloodcrates.claims:
+    description: Access to the fail-safe claims command
+    default: true
+  bloodcrates.admin.editor:
+    description: Access to the in-game crate editor
+    default: op
+  bloodcrates.admin.givecrate:
+    description: Give crate blocks to players
+    default: op
+  bloodcrates.admin.givekey:
+    description: Give crate keys to players
+    default: op
+  bloodcrates.admin.givevirtualcrate:
+    description: Give virtual crates to players
+    default: op
+  bloodcrates.admin.givevirtualkey:
+    description: Give virtual crate keys to players
+    default: op
+  bloodcrates.admin.givebundle:
+    description: Give configured bundles to players
+    default: op
+  bloodcrates.admin.reload:
+    description: Reload plugin configuration
+    default: op
+  bloodcrates.admin.reloadcrates:
+    description: Reload crate files and refresh placed crates
+    default: op
+  bloodcrates.admin.audit:
+    description: Access to the audit command
+    default: op
+  bloodcrates.admin.loadout:
+    description: Access to the loadout management command
+    default: op
+  bloodcrates.admin.setcrate:
+    description: Place crates in the world with a command
+    default: op
+  bloodcrates.admin.removecrate:
+    description: Remove placed crates with a command
+    default: op
+  bloodcrates.admin.listcrates:
+    description: List all placed crates
+    default: op
+  bloodcrates.admin.teleportcrate:
+    description: Teleport to a placed crate
+    default: op
+  bloodcrates.admin.limits:
+    description: Manage crate open limits
+    default: op
+  bloodcrates.admin.migrate:
+    description: Import crates from supported plugins
+    default: op
+  bloodcrates.admin.debug:
+    description: Trace internal crate logic for debugging
+    default: op
+  bloodcrates.cooldown.bypass:
+    description: Bypass per-crate cooldown checks
+    default: false
+  bloodcrates.admin.breakcrate:
+    description: Break placed crate blocks
+    default: op
+  bloodcrates.admin.notify:
+    description: Receive BloodlineCrates admin notifications
+    default: op

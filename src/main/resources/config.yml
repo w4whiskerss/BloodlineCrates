@@ -1,0 +1,121 @@
+prefix: '&6[BloodlineCrates]&r'
+
+debug:
+  colour: '&6'
+
+messages:
+  no-permission: '&cYou do not have permission to use this command.'
+  player-not-found: '&cPlayer {player} not found.'
+  crate-not-found: '&cCrate {crate} does not exist.'
+  reload-success: '&aConfiguration reloaded successfully!'
+  key-received: '&aYou received {amount}x {crate} key(s)!'
+  crate-received: '&aYou received a {crate} crate!'
+  reward-granted: '&aYou received: &e{reward}'
+  no-key: '&cYou need a {crate} key to open this crate!'
+  invalid-usage: '&cUsage: {usage}'
+  must-be-player: '&cThis command can only be used by players.'
+  no-crate-at-location: '&cNo crate found at your location.'
+  full-inventory: '&cYour inventory is full!'
+  reward-claimed: '&eYour inventory was full. {reward} was sent to /bc claims.'
+  claims-empty: '&7You do not have any unclaimed rewards.'
+  claims-header: '&6Unclaimed rewards:'
+  invalid-claim-number: '&cThat claim number is invalid.'
+  claim-redeem-failed: '&cUnable to redeem that claim right now.'
+  claim-redeemed: '&aRedeemed claim: &e{reward}'
+  world-blacklisted: '&cCrates are disabled in this world.'
+  alt-detected: '&ePotential alt detected: {player} is account #{count} on this IP.'
+  alt-kick: '&cToo many accounts are linked to your connection.'
+
+timed-keys:
+  example-hourly:
+    crate-id: "example"
+    amount: 1
+    interval: HOURLY
+    interval-ticks: 72000
+  example-daily:
+    crate-id: "example"
+    amount: 3
+    interval: DAILY
+    interval-ticks: 1728000
+
+leaderboards:
+  enabled: true
+  save-interval-minutes: 5
+
+security:
+  privacy-mode: false
+  anti-alt:
+    max-accounts-per-ip: 3
+    whitelist: []
+    actions:
+      - FLAG_ONLY
+      - NOTIFY_ADMINS
+
+world-blacklist: []
+
+discord:
+  enabled: false
+  webhook-url: ''
+  events:
+    crate-open: true
+    rare-reward: true
+    rare-threshold: 5.0
+
+bundles:
+  starter-bundle:
+    displayName: '&eStarter Bundle'
+    contents:
+      - crate-id: example
+        amount: 2
+
+sync:
+  provider: NONE
+  server-id: local
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: ''
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    database: bloodlinecrates
+    user: root
+    password: ''
+
+loadout:
+  format: JSON
+
+virtual-inventory:
+  enabled: true
+  gui-title: '&8BloodCrate Inventory'
+  filler-item:
+    material: GRAY_STAINED_GLASS_PANE
+    name: ' '
+
+broadcasts:
+  rare-threshold: 5.0
+  milestones: [10, 50, 100, 500, 1000]
+  templates:
+    - trigger: RARE_REWARD
+      chat:
+        - ''
+        - '&6&l★ RARE WIN &6&l★'
+        - '&e{player} &7won &6{reward} &7from &d{crate} &7(&f{chance}% chance&7)!'
+        - ''
+      title: '&6★ RARE WIN ★'
+      subtitle: '&e{player} won {reward}'
+      fade-in: 10
+      stay: 60
+      fade-out: 20
+      discord: true
+      sound: ENTITY_PLAYER_LEVELUP
+    - trigger: MILESTONE
+      chat:
+        - '&b{player} &7has opened &b{crate} &7a total of &f{player_opens} &7times!'
+      title: ''
+      subtitle: ''
+      fade-in: 10
+      stay: 40
+      fade-out: 10
+      discord: false
+      sound: ''
