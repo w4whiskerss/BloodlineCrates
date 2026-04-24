@@ -5,10 +5,6 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1200&color=E53935&center=true&vCenter=true&width=950&lines=Random+and+selectable+crates;Physical+and+virtual+keys;In-game+editor+workflow;Pity%2C+cooldowns%2C+limits%2C+broadcasts%2C+stats%2C+debug" alt="Typing banner" />
-</p>
-
-<p align="center">
   <strong>A feature-rich Paper crate plugin with a real admin workflow, not just a reward menu.</strong>
 </p>
 
@@ -58,10 +54,6 @@ It supports:
 - migration tools
 - player stats
 - debug tracing
-
-<p align="center">
-  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3djczl5aHlyNnc0dXVhMXQ3ZXNqYTZiN2I0eGQ0aW9zeXF2a2I2dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13HgwGsXF0aiGY/giphy.gif" width="760" alt="Minecraft themed gif" />
-</p>
 
 ## Build
 
@@ -447,7 +439,3 @@ Existing placeholders for keys, cooldowns, timed keys, and leaderboards are stil
 - Virtual keys are supported.
 - Virtual crates were removed from the design. The crate itself is still a real placed crate, while the key mode can be virtual.
 - Current build status is clean aside from 2 existing deprecation warnings in older code paths.
-
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=8B0000&center=true&vCenter=true&width=900&lines=Create+it.;Place+it.;Test+it.;Tune+it.;Ship+it." alt="Footer typing banner" />
-</p>
