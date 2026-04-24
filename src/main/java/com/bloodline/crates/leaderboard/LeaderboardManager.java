@@ -140,6 +140,15 @@ public class LeaderboardManager {
         
         return totalTime;
     }
+
+    public int getTotalOpens(LeaderboardPeriod period) {
+        if (!enabled) {
+            return 0;
+        }
+        return leaderboards.getOrDefault(period, Map.of()).values().stream()
+            .mapToInt(LeaderboardEntry::getCrateOpens)
+            .sum();
+    }
     
     private void startTasks() {
         if (!enabled) {

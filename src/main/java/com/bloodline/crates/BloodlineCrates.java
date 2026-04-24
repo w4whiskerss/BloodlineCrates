@@ -7,6 +7,7 @@ import com.bloodline.crates.broadcast.BroadcastManager;
 import com.bloodline.crates.command.BloodCratesCommand;
 import com.bloodline.crates.cooldown.CooldownManager;
 import com.bloodline.crates.debug.DebugEventType;
+import com.bloodline.crates.discord.DiscordBotManager;
 import com.bloodline.crates.debug.DebugManager;
 import com.bloodline.crates.economy.VaultEconomyHook;
 import com.bloodline.crates.failsafe.ClaimsManager;
@@ -86,6 +87,7 @@ public class BloodlineCrates extends JavaPlugin {
     private DebugManager debugManager;
     private StatsManager statsManager;
     private StatsGUI statsGUI;
+    private DiscordBotManager discordBotManager;
 
     @Override
     public void onEnable() {
@@ -122,6 +124,7 @@ public class BloodlineCrates extends JavaPlugin {
         this.debugManager = new DebugManager(this);
         this.statsManager = new StatsManager(this);
         this.statsGUI = new StatsGUI(this);
+        this.discordBotManager = new DiscordBotManager(this);
         this.rewardExecutorRegistry = new RewardExecutorRegistry(this);
         this.rewardExecutorRegistry.register(new ItemRewardExecutor());
         this.rewardExecutorRegistry.register(new CommandRewardExecutor());
@@ -175,6 +178,10 @@ public class BloodlineCrates extends JavaPlugin {
             getLogger().info("PlaceholderAPI expansion registered");
         }
 
+        if (this.discordBotManager != null) {
+            this.discordBotManager.start();
+        }
+
         getLogger().info("BloodlineCrates enabled successfully!");
     }
 
@@ -203,6 +210,9 @@ public class BloodlineCrates extends JavaPlugin {
         }
         if (this.limitManager != null) {
             this.limitManager.shutdown();
+        }
+        if (this.discordBotManager != null) {
+            this.discordBotManager.shutdown();
         }
 
         getLogger().info("BloodlineCrates disabled.");

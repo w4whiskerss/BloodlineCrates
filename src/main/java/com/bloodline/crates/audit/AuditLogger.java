@@ -88,6 +88,9 @@ public class AuditLogger {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
             writer.write(toJson(entry));
             writer.newLine();
+            if (plugin.getDiscordBotManager() != null) {
+                plugin.getDiscordBotManager().getAlertManager().mirrorAuditEntry(entry);
+            }
         } catch (Exception exception) {
             plugin.getLogger().warning("Failed to write audit entry: " + exception.getMessage());
         }

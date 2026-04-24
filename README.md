@@ -5,6 +5,10 @@
 </p>
 
 <p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1200&color=E53935&center=true&vCenter=true&width=950&lines=Random+and+selectable+crates;Physical+and+virtual+keys;In-game+editor+workflow;Pity%2C+cooldowns%2C+limits%2C+broadcasts%2C+stats%2C+debug" alt="Typing banner" />
+</p>
+
+<p align="center">
   <strong>A feature-rich Paper crate plugin with a real admin workflow, not just a reward menu.</strong>
 </p>
 

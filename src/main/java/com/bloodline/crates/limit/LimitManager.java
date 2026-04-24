@@ -60,11 +60,15 @@ public class LimitManager {
 
     public void recordOpen(Player player, Crate crate) {
         String crateId = normalize(crate.getId());
+        boolean wasSoldOut = isSoldOut(crate);
         globalCounts.put(crateId, getGlobalOpens(crateId) + 1);
         store.saveGlobalCounts(globalCounts);
         plugin.getPlayerDataManager().incrementCrateOpenCount(player.getUniqueId(), crateId);
 
         if (isSoldOut(crate)) {
+            if (!wasSoldOut && plugin.getDiscordBotManager() != null) {
+                plugin.getDiscordBotManager().getAlertManager().alertGlobalLimitReached(crate);
+            }
             plugin.getPlacementManager().refreshPlacements();
         }
     }

@@ -64,6 +64,11 @@ public class CooldownManager {
         save();
     }
 
+    public void clearAllCooldowns(UUID playerUUID) {
+        entries.entrySet().removeIf(entry -> entry.getValue().getPlayerUUID().equals(playerUUID));
+        save();
+    }
+
     public void resetAllCooldowns() {
         entries.clear();
         save();

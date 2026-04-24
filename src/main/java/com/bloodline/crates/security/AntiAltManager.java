@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import java.net.InetSocketAddress;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public class AntiAltManager implements Listener {
@@ -47,6 +48,17 @@ public class AntiAltManager implements Listener {
     }
 
     private void handleDetection(Player player) {
+        Player existingAccount = ipTracker.getAccountsFor(player.getUniqueId()).stream()
+            .filter(accountId -> !accountId.equals(player.getUniqueId()))
+            .map(Bukkit::getPlayer)
+            .filter(other -> other != null && other.isOnline())
+            .findFirst()
+            .orElse(null);
+
+        if (plugin.getDiscordBotManager() != null) {
+            plugin.getDiscordBotManager().getAlertManager().alertAntiAlt(player, existingAccount);
+        }
+
         List<String> actions = plugin.getConfig().getStringList("security.anti-alt.actions");
         if (actions.isEmpty()) {
             actions = List.of("FLAG_ONLY");

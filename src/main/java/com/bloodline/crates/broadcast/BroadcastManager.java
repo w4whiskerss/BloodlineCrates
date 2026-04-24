@@ -117,6 +117,13 @@ public class BroadcastManager {
             return;
         }
 
+        if (reward.getChance() <= rareThreshold && plugin.getDiscordBotManager() != null) {
+            plugin.getDiscordBotManager().getAlertManager().alertRareReward(player, crate, reward);
+        }
+        if (pityTriggered && plugin.getDiscordBotManager() != null) {
+            plugin.getDiscordBotManager().getAlertManager().alertJackpot(player, crate, reward);
+        }
+
         for (BroadcastTemplate template : templates) {
             if (template.getTrigger() == null || !matchedTriggers.contains(template.getTrigger())) {
                 continue;

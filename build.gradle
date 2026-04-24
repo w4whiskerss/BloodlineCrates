@@ -18,6 +18,9 @@ dependencies {
     compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
     implementation 'com.github.cryptomorin:XSeries:13.5.1'
     implementation 'com.google.code.gson:gson:2.13.2'
+    implementation('net.dv8tion:JDA:5.0.0') {
+        exclude group: 'club.minnced', module: 'opus-java'
+    }
     compileOnly('com.github.MilkBowl:VaultAPI:1.7') {
         exclude group: 'org.bukkit', module: 'bukkit'
     }
@@ -45,6 +48,10 @@ tasks.jar {
 tasks.shadowJar {
     archiveClassifier = ''
     relocate 'com.cryptomorin.xseries', 'com.bloodline.crates.libs.xseries'
+    relocate 'net.dv8tion.jda', 'com.bloodline.crates.libs.jda'
+    relocate 'com.neovisionaries.ws', 'com.bloodline.crates.libs.neovisionaries'
+    relocate 'okhttp3', 'com.bloodline.crates.libs.okhttp3'
+    relocate 'okio', 'com.bloodline.crates.libs.okio'
 }
 
 tasks.assemble {

@@ -1,4 +1,5 @@
 prefix: '&6[BloodlineCrates]&r'
+server-name: 'BloodlineCrates Server'
 
 debug:
   colour: '&6'
@@ -56,6 +57,19 @@ world-blacklist: []
 discord:
   enabled: false
   webhook-url: ''
+  bot-token: ''
+  guild-id: ''
+  channels:
+    stats: ''
+    alerts: ''
+    commands: ''
+    audit-log: ''
+  stats-post-interval-minutes: 60
+  rate-limit:
+    max-commands-per-minute: 10
+  permissions:
+    admin-role-ids: []
+    moderator-role-ids: []
   events:
     crate-open: true
     rare-reward: true
