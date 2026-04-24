@@ -1,12 +1,67 @@
 # BloodlineCrates
 
-BloodlineCrates is a Paper crate plugin with:
-- random and selectable crates
-- physical and virtual keys
-- in-game editing
-- pity, cooldowns, limits, broadcasts, stats, and debug tools
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=8B0000&text=BloodlineCrates&fontColor=ffffff&fontAlignY=38&desc=Paper%20crate%20plugin%20with%20editor%2C%20keys%2C%20stats%2C%20and%20debugging&descAlignY=58&animation=fadeIn" alt="BloodlineCrates banner" />
+</p>
 
-This README is focused on one thing: how to actually create and manage your crate content in-game.
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1200&color=E53935&center=true&vCenter=true&width=950&lines=Random+and+selectable+crates;Physical+and+virtual+keys;In-game+editor+workflow;Pity%2C+cooldowns%2C+limits%2C+broadcasts%2C+stats%2C+debug" alt="Typing banner" />
+</p>
+
+<p align="center">
+  <strong>A feature-rich Paper crate plugin with a real admin workflow, not just a reward menu.</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Paper-1.21-red?style=for-the-badge" alt="Paper" />
+  <img src="https://img.shields.io/badge/Build-Gradle-darkred?style=for-the-badge" alt="Gradle" />
+  <img src="https://img.shields.io/badge/Keys-Physical%20%2B%20Virtual-black?style=for-the-badge" alt="Keys" />
+  <img src="https://img.shields.io/badge/Includes-Stats%20%2B%20Debug-red?style=for-the-badge" alt="Stats and Debug" />
+</p>
+
+<p align="center">
+  <a href="#quick-start">Quick Start</a>
+  •
+  <a href="#how-to-create-your-stuff">Create Your Stuff</a>
+  •
+  <a href="#admin-flow">Admin Flow</a>
+  •
+  <a href="#commands">Commands</a>
+  •
+  <a href="#debug-and-stats">Debug and Stats</a>
+</p>
+
+---
+
+## Overview
+
+BloodlineCrates is built around the real workflow server owners actually need:
+- create crate configs
+- give or test keys
+- place crates in the world
+- edit rewards in-game
+- tune cooldowns, pity, limits, and broadcasts
+- inspect player stats
+- trace problems with debug output
+
+It supports:
+- random crates
+- selectable crates
+- physical keys
+- virtual keys
+- in-game editor menus
+- cooldowns
+- pity
+- limits
+- timed rewards
+- broadcast system
+- migration tools
+- player stats
+- debug tracing
+
+<p align="center">
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3djczl5aHlyNnc0dXVhMXQ3ZXNqYTZiN2I0eGQ0aW9zeXF2a2I2dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/13HgwGsXF0aiGY/giphy.gif" width="760" alt="Minecraft themed gif" />
+</p>
 
 ## Build
 
@@ -20,85 +75,83 @@ Built jar:
 build/libs/
 ```
 
-## Install
+## Quick Start
 
-1. Put the jar into your server `plugins` folder.
-2. Start the server once.
-3. Stop the server after the plugin generates its files.
-4. Check these files:
+1. Put the jar into your server `plugins/` folder.
+2. Start the server once so files generate.
+3. Stop the server and check:
 
 ```text
 plugins/BloodlineCrates/config.yml
 plugins/BloodlineCrates/crates/example.yml
 ```
 
-## Main Idea
-
-You work with 3 things:
-- crate configs: what the crate is, what rewards it has, how it opens
-- keys: what players need to open the crate
-- placements: where the crate exists in the world
-
-## Quick Start
-
-### 1. Reload the plugin
+4. Start the server again.
+5. Reload the plugin:
 
 ```text
 /bc reload
 ```
 
-### 2. Open the editor
+6. Open the editor:
 
 ```text
 /bc editor
 ```
 
-From there you can:
-- browse crates
-- edit rewards
-- edit key display items
-- change key mode
-- change crate layout
-- adjust cooldowns and other settings
-
-### 3. Use the included example crate
-
-The plugin ships with:
-- crate id: `example`
-- key id: `example_key`
-
-Give yourself the example key:
+7. Use the included example crate:
 
 ```text
 /bc givekey example <yourname> 5
-```
-
-Preview the crate:
-
-```text
 /bc preview example
-```
-
-Open it directly:
-
-```text
 /bc open example
 ```
 
-## Creating Your Own Crates
+---
 
-### Option A: Use the editor
+## How To Create Your Stuff
 
-This is the easiest path.
+This plugin really revolves around 3 things:
+- crates
+- keys
+- placements
 
-1. Run:
+### Crates
+
+A crate defines:
+- its id
+- its display name
+- whether it is `RANDOM` or `SELECTABLE`
+- its rewards
+- its key mode
+- optional pity, cooldown, and limits
+
+### Keys
+
+A crate can use exactly one key mode:
+- `PHYSICAL`
+- `VIRTUAL`
+
+You can switch that inside the editor.
+
+### Placements
+
+Placements are the actual in-world crate locations players click.
+
+---
+
+## Create A Crate
+
+### Fastest method
+
+1. Open the editor:
 
 ```text
 /bc editor
 ```
 
-2. Open the crate manager.
-3. Select a crate to edit.
+2. Go into the crate manager.
+3. Pick a crate to edit, or duplicate the example config from disk.
 4. Configure:
 - display name
 - description
@@ -111,7 +164,7 @@ This is the easiest path.
 - pity
 - limits
 
-### Option B: Copy the example config
+### Config-first method
 
 Create a new `.yml` file inside:
 
@@ -119,48 +172,46 @@ Create a new `.yml` file inside:
 plugins/BloodlineCrates/crates/
 ```
 
-The easiest method is:
+The easiest route is:
 1. copy `example.yml`
 2. change the `id`
-3. change the display name
+3. change the crate display name
 4. replace the rewards
-5. reload with:
+5. reload crate files:
 
 ```text
 /bc reloadcrates
 ```
 
-## Crate Types
+The included template is here:
 
-### Random crate
+[example.yml](D:/W4Whiskers/Development/Projects/Minecraft%20Mods/BloodlineCrates/src/main/resources/crates/example.yml)
 
-Players open the crate and the plugin rolls one reward by chance.
+---
 
-Use when you want:
-- classic RNG crates
-- jackpot style crates
+## Choose The Crate Type
+
+### Random
+
+Use a random crate when you want:
+- classic RNG openings
+- rare jackpot hits
 - weighted prize pools
 
-### Selectable crate
+### Selectable
 
-Players open the crate and choose from the configured rewards.
+Use a selectable crate when you want:
+- players to choose their reward
+- battle pass style claim menus
+- premium reward selectors
 
-Use when you want:
-- battle pass style reward claiming
-- rankup reward selectors
-- guaranteed choice crates
+---
 
-## Key Modes
-
-Each crate can only use one key mode:
-- `PHYSICAL`
-- `VIRTUAL`
-
-You can change this in the crate editor.
+## Choose The Key Type
 
 ### Physical keys
 
-These are actual items in the player inventory.
+These are real inventory items.
 
 Give them with:
 
@@ -170,7 +221,7 @@ Give them with:
 
 ### Virtual keys
 
-These are stored in player data instead of inventory.
+These are stored in player data.
 
 Give them with:
 
@@ -178,11 +229,17 @@ Give them with:
 /bc givevirtualkey <crate_id> <player> [amount]
 ```
 
-## Creating Rewards
+### Important
 
-Rewards are configured inside each crate.
+Each crate can only use one key mode at a time.
 
-Current supported reward flows include:
+---
+
+## Create Rewards
+
+Rewards are configured per crate.
+
+Current reward flows include:
 - item rewards
 - command rewards
 - economy rewards
@@ -190,32 +247,37 @@ Current supported reward flows include:
 - multi rewards
 - broadcast-aware rewards
 
-### Good starter reward setup
+### Good basic reward setup
 
-For a basic item reward:
-- put the item in the reward
-- set a chance
-- optionally set a display name
+For a simple item reward:
+- set the item
+- set the chance
+- give it a clean display name
+- optionally add a description
 - optionally enable broadcast
 
-### Good selectable crate setup
+### Good selectable setup
 
 For selectable crates:
-- keep reward list small and clear
-- make every reward visually distinct
-- use display names and descriptions
+- keep the reward pool readable
+- make icons visually distinct
+- use clear names so the menu feels premium
 
-## Placing Crates In The World
+---
+
+## Place Crates In The World
 
 ### Place by command
 
-Stand where you want the crate and use your placement flow:
+Stand where you want the crate and use:
 
 ```text
 /bc setcrate <crate_id>
 ```
 
-If your current placement workflow is item-based, use:
+### Item-based flow
+
+If you want the crate item first:
 
 ```text
 /bc givecrate <crate_id> <player>
@@ -223,85 +285,105 @@ If your current placement workflow is item-based, use:
 
 Then place the crate item in the world.
 
-### Remove a placed crate
+### Useful placement commands
 
 ```text
 /bc removecrate
-```
-
-### List placed crates
-
-```text
 /bc listcrates
-```
-
-### Teleport to a placed crate
-
-```text
 /bc teleportcrate <placement_id>
 ```
 
-## Editing Existing Crates
+---
 
-Use the editor for most changes:
+## Admin Flow
 
-```text
-/bc editor
-```
+This is the cleanest workflow if you are building out a real server setup:
 
-Common edits:
-- change physical/virtual key mode
-- update reward chances
-- change reward icons
-- change pity threshold
-- change cooldown
-- change hologram text
-- change layout rows and reward slots
-
-After config-side edits from disk:
-
-```text
-/bc reloadcrates
-```
-
-That also resets crate cooldown state to the latest editor/config values.
-
-## Testing Your Setup
-
-Recommended test flow:
-
-1. Give yourself keys
-
-```text
-/bc givekey <crate_id> <yourname> 10
-```
-
-2. Preview the crate
+1. Create or copy a crate config.
+2. Decide whether it is `RANDOM` or `SELECTABLE`.
+3. Decide whether it uses `PHYSICAL` or `VIRTUAL` keys.
+4. Build the rewards.
+5. Preview it:
 
 ```text
 /bc preview <crate_id>
 ```
 
-3. Open the crate several times
-4. Check:
-- rewards are correct
-- key consumption is correct
-- cooldown works
-- pity works
-- broadcasts work
-- stats update
+6. Give yourself test keys:
 
-## Stats
+```text
+/bc givekey <crate_id> <yourname> 10
+```
+
+7. Place the crate in the world.
+8. Open it repeatedly and test:
+- key consumption
+- reward selection
+- cooldown
+- pity
+- broadcasts
+- stats
+
+9. If something feels wrong, trace it:
+
+```text
+/bc debug on <player>
+```
+
+---
+
+## Commands
+
+### Core
+
+```text
+/bc editor
+/bc reload
+/bc reloadcrates
+/bc preview <crate_id>
+/bc open <crate_id>
+```
+
+### Keys and crates
+
+```text
+/bc givekey <crate_id> <player> [amount]
+/bc givevirtualkey <crate_id> <player> [amount]
+/bc givecrate <crate_id> <player>
+/bc setcrate <crate_id>
+/bc removecrate
+/bc listcrates
+/bc teleportcrate <placement_id>
+```
+
+### Stats and debug
+
+```text
+/bc stats [player]
+/bc stats gui [player]
+/bc debug on [player]
+/bc debug off
+/bc debug status
+```
+
+### Other admin systems
+
+```text
+/bc limits ...
+/bc migrate ...
+/bc claims
+```
+
+---
+
+## Debug And Stats
+
+### Stats
 
 View your own stats:
 
 ```text
 /bc stats
-```
-
-Open GUI stats:
-
-```text
 /bc stats gui
 ```
 
@@ -312,9 +394,9 @@ View another player's stats:
 /bc stats gui <player>
 ```
 
-Requires admin permission when targeting another player.
+Viewing another player requires admin access.
 
-## Debugging
+### Debug
 
 Trace all players:
 
@@ -322,71 +404,50 @@ Trace all players:
 /bc debug on
 ```
 
-Trace one player only:
+Trace one player:
 
 ```text
 /bc debug on <player>
 ```
 
-Disable debug:
+Turn it off:
 
 ```text
 /bc debug off
 ```
 
-Check debug status:
+Check state:
 
 ```text
 /bc debug status
 ```
 
-## Useful Admin Commands
+---
+
+## PlaceholderAPI
+
+Stats placeholders now include:
 
 ```text
-/bc reload
-/bc reloadcrates
-/bc editor
-/bc preview <crate_id>
-/bc open <crate_id>
-/bc givekey <crate_id> <player> [amount]
-/bc givevirtualkey <crate_id> <player> [amount]
-/bc givecrate <crate_id> <player>
-/bc setcrate <crate_id>
-/bc removecrate
-/bc listcrates
-/bc teleportcrate <placement_id>
-/bc limits ...
-/bc stats [player]
-/bc stats gui [player]
-/bc debug on [player]
+%bloodcrates_stats_total%
+%bloodcrates_stats_opens_<crateId>%
+%bloodcrates_stats_rarest_<crateId>%
+%bloodcrates_stats_rarest_chance_<crateId>%
+%bloodcrates_stats_last_<crateId>%
 ```
 
-## Example Config
+Existing placeholders for keys, cooldowns, timed keys, and leaderboards are still available too.
 
-The included example crate is here:
-
-[example.yml](D:/W4Whiskers/Development/Projects/Minecraft%20Mods/BloodlineCrates/src/main/resources/crates/example.yml)
-
-Use it as your template if you want the fastest starting point.
-
-## Suggested Workflow
-
-If you’re building a real server setup, this is the smoothest order:
-
-1. Create the crate config.
-2. Decide whether it is `RANDOM` or `SELECTABLE`.
-3. Decide whether it uses `PHYSICAL` or `VIRTUAL` keys.
-4. Build rewards.
-5. Test with `/bc preview`.
-6. Give yourself keys.
-7. Place the crate.
-8. Test cooldown, pity, and broadcasts.
-9. Check `/bc stats` after a few opens.
-10. Use `/bc debug on <player>` if something feels off.
+---
 
 ## Notes
 
-- `reload` refreshes the plugin config and managers.
-- `reloadcrates` refreshes crate files and applied crate cooldown definitions.
+- `/bc reload` refreshes managers and plugin config.
+- `/bc reloadcrates` refreshes crate files and reapplies crate cooldown definitions.
 - Virtual keys are supported.
-- Virtual crates were removed from the design; the crate itself is physical/placed, while the key mode can be virtual.
+- Virtual crates were removed from the design. The crate itself is still a real placed crate, while the key mode can be virtual.
+- Current build status is clean aside from 2 existing deprecation warnings in older code paths.
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&pause=1000&color=8B0000&center=true&vCenter=true&width=900&lines=Create+it.;Place+it.;Test+it.;Tune+it.;Ship+it." alt="Footer typing banner" />
+</p>
